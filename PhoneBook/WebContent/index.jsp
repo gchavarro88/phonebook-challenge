@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script src="js/phonebook.js"></script>
+	<script src="js/filters.js"></script>
 </head>
 <body>
 	<div class="container" ng-controller="phoneBookController">
@@ -26,11 +27,11 @@
 		    		<h2><i class="fa fa-user-plus"></i>New contact</h2>
 		    		<form class="pure-form">
 					    <fieldset class="pure-group">
-					        <input type="text" class="pure-input-1-2" placeholder="First Name">
-					        <input type="text" class="pure-input-1-2" placeholder="Last Name">
-					        <input type="email" class="pure-input-1-2" placeholder="Phone">
+					        <input type="text" class="pure-input-1-2" placeholder="First Name" ng-model="firstName">
+					        <input type="text" class="pure-input-1-2" placeholder="Last Name" ng-model="lastName">
+					        <input type="number" class="pure-input-1-2" placeholder="Phone" ng-model="phone">
 					    </fieldset>
-					    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">
+					    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary" ng-click="addContact()">
 					    <i class="fa fa-user-plus"></i>Add</button>
 					</form>
 				</div>
@@ -40,9 +41,9 @@
 		    		<h2><i class="fa fa-search"></i>Search contact</h2>
 		    		<form class="pure-form">
 		    			<fieldset class="pure-group">
-					    	<input type="text" class="pure-input-1-2">
+					    	<input type="text" class="pure-input-1-2" ng-model="keyWord">
 					     </fieldset>
-					    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">
+					    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary" ng-click="search()">
 					    <i class="fa fa-search"></i>Search</button>
 					</form>
 				</div>
@@ -59,11 +60,11 @@
 					        </tr>
 					    </thead>
 					
-					    <tbody ng-repeat="contacto in contactos">
+					    <tbody ng-repeat="contact in contacts">
 					        <tr>
-					            <td>{{contacto.text}}</td>
-					            <td>{{contacto.done}}</td>
-					            <td>{{contacto.text}}</td>
+					            <td>{{contact.firstName}}</td>
+					            <td>{{contact.lastName}}</td>
+					            <td>{{contact.phone | phone}}</td>
 					        </tr>
 					    </tbody>
 					</table>
