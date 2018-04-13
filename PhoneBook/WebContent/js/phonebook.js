@@ -19,8 +19,13 @@ var app = angular.module('phoneBookApp', []).controller('phoneBookController', f
 	readContacts();
 	
 	$scope.search = function(){
-		if($scope.keyWord.trim().length > 0){
-			searchContact($scope.keyWord);
+		if($scope.keyWord != null){
+			if($scope.keyWord.trim().length > 0){
+				searchContact($scope.keyWord);
+			}
+			else{
+				readContacts();
+			}
 		}
 		else{
 			alert("Please insert a valid value!");
