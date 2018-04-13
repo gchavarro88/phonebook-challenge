@@ -1,22 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 <!DOCTYPE html>
-<html>
+<html ng-app="phoneBookApp">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 	<title>PhoneBook</title>
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="js/phonebook.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" ng-controller="phoneBookController">
 		<div class="pure-g">
 			<div class="pure-u-1">
 				<div class="header">
 					<img class="logo" src="img/phonebook.png"/>
 					<p>v 1.0</p>
 				</div>
-				
 			</div>
 		</div>
 		<div class="pure-g">
@@ -58,23 +59,11 @@
 					        </tr>
 					    </thead>
 					
-					    <tbody>
+					    <tbody ng-repeat="contacto in contactos">
 					        <tr>
-					            <td>Arun</td>
-					            <td>Kart</td>
-					            <td>415-8679089</td>
-					        </tr>
-					
-					        <tr>
-					            <td>Juan</td>
-					            <td>Torus</td>
-					            <td>301-2390930</td>
-					        </tr>
-					
-					        <tr>
-					            <td>Nolux</td>
-					            <td>Fernandez</td>
-					            <td>310-2930291</td>
+					            <td>{{contacto.text}}</td>
+					            <td>{{contacto.done}}</td>
+					            <td>{{contacto.text}}</td>
 					        </tr>
 					    </tbody>
 					</table>
