@@ -21,7 +21,7 @@ var app = angular.module('phoneBookApp', []).controller('phoneBookController', f
 	$scope.search = function(){
 		if($scope.keyWord != null){
 			if($scope.keyWord.trim().length > 0){
-				searchContact($scope.keyWord);
+				searchContact('A'+$scope.keyWord);
 			}
 			else{
 				readContacts();
@@ -53,11 +53,11 @@ var app = angular.module('phoneBookApp', []).controller('phoneBookController', f
 	}
 	
 	function addContact(contact){
-		doRequest(ADD_OPERATION, null, responseSuccessfulAdd, responseError);
+		doRequest(ADD_OPERATION, contact, responseSuccessfulAdd, responseError);
 	}
 	
-	function searchContact(keyWork){
-		doRequest(SEARCH_OPERATION, null, responseSuccessful, responseError);
+	function searchContact(keyWord){
+		doRequest(SEARCH_OPERATION, keyWord, responseSuccessful, responseError);
 	}
 	
 	function readContacts(){
@@ -67,11 +67,15 @@ var app = angular.module('phoneBookApp', []).controller('phoneBookController', f
 	function responseSuccessful(response){
 		console.log(response);
 		$scope.contacts = response.data;
+		$scope.keyWord  ="";
 	}
 	
 	function responseSuccessfulAdd(response){
 		console.log(response);
 		readContacts();
+		$scope.firstName = "";
+		$scope.lastName = "";
+		$scope.phone = null;
 	}
 	
 	function responseError(response){
