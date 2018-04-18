@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html ng-app="phoneBookApp">
 <head>
@@ -6,17 +7,17 @@
 	<title>PhoneBook</title>
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="<c:url value="/resources/css/styles.css"/>">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script src="js/phonebook.js"></script>
-	<script src="js/filters.js"></script>
+	<script src="<c:url value="/resources/js/phonebook.js"/>"></script>
+	<script src="<c:url value="/resources/js/filters.js"/>"></script>
 </head>
 <body>
 	<div class="container" ng-controller="phoneBookController">
 		<div class="pure-g">
 			<div class="pure-u-1">
 				<div class="header">
-					<img class="logo" src="img/phonebook.png"/>
+					<img class="logo" src="<c:url value="/resources/img/phonebook.png"/>">
 					<p>v 1.0</p>
 				</div>
 			</div>

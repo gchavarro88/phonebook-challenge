@@ -10,18 +10,22 @@ var app = angular.module('phoneBookApp', []).controller('phoneBookController', f
 	const IP = "http://localhost:";
 	const PORT = "8084";
 	const PRODUCT = "/PhoneBook/";
-	const PATH = "services/contact/";
+	const PATH = "contact/";
 	const ADD_OPERATION = "addContact";
 	const READ_OPERATION = "readContacts";
 	const SEARCH_OPERATION = "searchContact";
 	const ENDPOINT = IP+PORT+PRODUCT+PATH;
 	
+	//Load list of contacts when the page is loaded
 	readContacts();
 	
+	/**
+	 * This function valid if the keyword is not empty
+	 **/
 	$scope.search = function(){
 		if($scope.keyWord != null){
 			if($scope.keyWord.trim().length > 0){
-				searchContact('A'+$scope.keyWord);
+				searchContact($scope.keyWord);
 			}
 			else{
 				readContacts();
@@ -82,7 +86,11 @@ var app = angular.module('phoneBookApp', []).controller('phoneBookController', f
 		console.log(response);
 		alert("An error ocurred, please try again");
 	}
-   
+   /**
+    * Common function to do request to the backend, 
+    * operation parameter allows to define which method call 
+    * at the backend
+    **/
 	function doRequest(operation, data, success, error){
 		var request = 
 		{
