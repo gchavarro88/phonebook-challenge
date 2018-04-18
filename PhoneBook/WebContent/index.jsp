@@ -4,7 +4,8 @@
 <html ng-app="phoneBookApp">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-	<title>PhoneBook</title>
+	<meta charset="utf-8">
+    <title>PhoneBook</title>
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<c:url value="/resources/css/styles.css"/>">
